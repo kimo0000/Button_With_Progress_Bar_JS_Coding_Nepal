@@ -1,0 +1,64 @@
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  height: 100vh;
+  background-color: #ddd;
+  display: grid;
+  place-items: center;
+}
+button {
+  width: 50%;
+  max-width: 350px;
+  padding: 15px 25px;
+  background-color: blueviolet;
+  font-size: 25px;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: inherit;
+  transition: transform 4s;
+}
+button.progress::before {
+  animation: progressbar 4s;
+  /* transform: translateX(0%); */
+}
+@keyframes progressbar {
+  0% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(0%);
+  }
+}
